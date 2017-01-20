@@ -1,6 +1,8 @@
 #include <iostream>
 #include <algorithm>
 #include <cstring>
+#include <stdlib.h>
+#include <time.h>
 
 using namespace std;
 
@@ -42,7 +44,7 @@ int findMax3(int arr[], int n)	//Elimination Approach
 
 int findMax4(int arr[], int n)	//Bubble Sort Inspired Approach
 {	int i, temp[n];
-	for (i=0; i<n; i++)	//Replace with memcpy
+	for (i=0; i<n; i++)	
 		temp[i] = arr[i];
 	for (i=0; i<n-1; i++)
 	{	if (temp[i] > temp[i+1])
@@ -68,7 +70,7 @@ int findMax5(int arr[], int n)	//Graph Theory Inspired Approach
 
 int findMax6(int arr[], int n)	//Sort and Pick Approach
 {	int i, temp[n];
-	for(i=0; i<n; i++)	//Replace with memcpy
+	for(i=0; i<n; i++)
 		temp[i] = arr[i];
 	sort(temp, temp+n);
 	return temp[n-1];
@@ -97,9 +99,14 @@ void heapify(int *arr, int n, int i)
 int findMax7(int arr[], int n)	//Heapify and Pick Approach
 {
 	int temp[n+1] = {0};
-	memcpy(temp, arr, n*sizeof(*arr));
-	heapify(temp, n, n/2-1);
-	return temp[1];
+	for (int i=0; i<n; i++)
+		temp[i+1] = arr[i];
+	for (int i=n/2; i>=0; i--)
+		heapify(temp, n, i);
+	cout <<endl<< "OUTPUT";
+	for (int i=0; i<=n; i++)
+		cout << temp[i]<<' ';
+	return temp[0];
 }
 
 int main()
@@ -107,9 +114,10 @@ int main()
 	int n, i;
 	cout <<"Enter size: ";
 	cin >> n;
+	srand(time(NULL));
 	int arr[n] = {0};
 	for (i=0; i<n; i++)
-		cin >> arr[i];
+		arr[i] = rand()%100;
 	cout << "\nMaximum has been determined through 7 different approaches \n\n";
 	cout << "1: " << findMax1(arr, n);
 	cout << "\n2: " << findMax2(arr, n);
@@ -117,6 +125,6 @@ int main()
 	cout << "\n4: " << findMax4(arr, n);
 	cout << "\n5: " << findMax5(arr, n);
 	cout << "\n6: " << findMax6(arr, n);
-	cout << "\n7: " << findMax7(arr, n);
+	cout << "\n7: " << findMax7(arr, n)<<endl;
 	return 0;
 }
