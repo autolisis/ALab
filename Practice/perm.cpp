@@ -31,8 +31,8 @@ void genPerm(int a[], int size, int n)
 
 int main()
 {	
-	int a[] = {1, 2, 3, 4, 5, 6, 7};
-	genPerm(a, 7, 7);
+	int a[] = {1, 2, 3, 4, 5, 6, 7, 8, 9};
+	genPerm(a, 9, 9);
 
 	return 0;
 }

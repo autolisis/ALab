@@ -1,2 +1,2 @@
-program: sort.cpp
+a: sort.cpp
 	g++ sort.cpp
