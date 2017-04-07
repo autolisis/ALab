@@ -23,6 +23,8 @@ void dfs(vector < vector <bool> > &graph, int noVert, int startVert)	{
 			cout << curVert<<" ";
 			visited[curVert] = 1;
 		}
+		else 
+			cout << "CYCLELELE";
 		for (int i=noVert-1; i>=0; i--)
 			if (isNeighbor(graph, noVert, curVert, i))
 					if (!visited[i])
