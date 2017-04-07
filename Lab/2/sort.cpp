@@ -69,7 +69,7 @@ void bruteSort(int a[], int size, int n)	//Function that generates each permutat
 		bruteSort(a, size-1, n);
 		if (flagSorted == 1)
 			return;
-		if (size & 1 == 1)
+		if ((size & 1) == 1)
 			swap(a[0], a[size-1]);
 		else
 			swap(a[i], a[size-1]);
