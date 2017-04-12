@@ -85,7 +85,7 @@ void popTrees(vector < vector <bool> > &graph, int noEdges, int requiredEdges) {
 		}
 	}
 	/* For all such binary strings with k bits set, create its corresponding graph and check if it is cyclic */
-	/* 	if not, add it to the list of spantrees */ 
+	/* 	if not, add it to the list of spantrees */
 	for (string str : DP[noEdges][requiredEdges]) {
 		vector < vector <bool> > newTree(requiredEdges+1, vector <bool> (requiredEdges+1, false));
 
@@ -101,7 +101,7 @@ void popTrees(vector < vector <bool> > &graph, int noEdges, int requiredEdges) {
 }
 
 /* Black box function - Generates all possible spanning trees of graph, gets their leaf count and returns
-   true if there exists a spanning tree with at most k leaves */
+	true if there exists a spanning tree with at most k leaves */
 bool hasatMostkLeafTree(vector <vector <bool> > &graph, int k, int &treeIndex) {
 	int noEdges = edges.size();
 	int noVerts = graph.size();
